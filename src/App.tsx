@@ -4,17 +4,17 @@ import logo from './logo.svg';
 import './App.css';
 import EnhancedTable from './components/table/EnhancedTable';
 
-// export const CreateOrderContext = createContext(null);
+export const CreateOrderContext = createContext<any | undefined>(undefined);
 
 function App() {
 	const [currentOrderContext, setCurrentOrderContext] = useState();
 	return (
 		<>
-			{/* <CreateOrderContext.Provider
+			<CreateOrderContext.Provider
 				value={{ currentOrderContext, setCurrentOrderContext }}
-			> */}
-			<EnhancedTable />
-			{/* </CreateOrderContext.Provider> */}
+			>
+				<EnhancedTable />
+			</CreateOrderContext.Provider>
 		</>
 	);
 }

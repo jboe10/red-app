@@ -6,7 +6,7 @@ import Add from '@mui/icons-material/Add';
 import { TextField } from '@mui/material';
 import DropDown from './DropDown';
 import { create } from '../api/OrderApi';
-// import { CreateOrderContext } from '../App';
+import { CreateOrderContext } from '../App';
 
 const style = {
 	position: 'absolute' as 'absolute',
@@ -21,8 +21,8 @@ const style = {
 };
 
 export default function CreateOrderModal() {
-	// const { currentOrderContext, setCurrentOrderContext } =
-	// 	React.useContext(CreateOrderContext);
+	const { currentOrderContext, setCurrentOrderContext } =
+		React.useContext(CreateOrderContext);
 	const [open, setOpen] = React.useState(false);
 	const [customerName, setCustomerName] = React.useState('');
 	const [createdByUsername, setCreatedByUsername] = React.useState('');
@@ -30,17 +30,17 @@ export default function CreateOrderModal() {
 	const handleClose = () => setOpen(false);
 	const [orderType, setOrderType] = React.useState(0);
 
-	// const saveDraftClickHandler = (e: any) => {
-	// 	setCurrentOrderContext({ customerName, createdByUsername, orderType });
-	// };
+	const saveDraftClickHandler = (e: any) => {
+		setCurrentOrderContext({ customerName, createdByUsername, orderType });
+	};
 
-	// React.useEffect(() => {
-	// 	if (currentOrderContext !== undefined) {
-	// 		setCreatedByUsername(currentOrderContext.createdByUserName);
-	// 		setCustomerName(currentOrderContext.customerName);
-	// 		setOrderType(currentOrderContext.orderType);
-	// 	}
-	// }, [open, currentOrderContext]);
+	React.useEffect(() => {
+		if (currentOrderContext !== undefined) {
+			setCreatedByUsername(currentOrderContext.createdByUserName);
+			setCustomerName(currentOrderContext.customerName);
+			setOrderType(currentOrderContext.orderType);
+		}
+	}, [open, currentOrderContext]);
 
 	const formSubmitHandler = async (e: any) => {
 		e.preventDefault();
@@ -111,13 +111,13 @@ export default function CreateOrderModal() {
 							>
 								Create
 							</Button>
-							{/* <Button
+							<Button
 								variant="contained"
 								sx={{ backgroundColor: '#DB3534' }}
 								onClick={saveDraftClickHandler}
 							>
 								SaveDraft
-							</Button> */}
+							</Button>
 						</Box>
 					</form>
 				</Box>
