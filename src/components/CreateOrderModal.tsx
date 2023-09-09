@@ -41,7 +41,6 @@ export default function CreateOrderModal() {
 	// 		setOrderType(currentOrderContext.orderType);
 	// 	}
 	// }, [open, currentOrderContext]);
-	const createClickHandler = (e: any) => {};
 
 	const formSubmitHandler = async (e: any) => {
 		e.preventDefault();
@@ -109,7 +108,6 @@ export default function CreateOrderModal() {
 								variant="contained"
 								sx={{ backgroundColor: '#DB3534' }}
 								type="submit"
-								onClick={createClickHandler}
 							>
 								Create
 							</Button>
