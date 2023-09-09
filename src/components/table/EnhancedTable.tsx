@@ -38,7 +38,6 @@ export default function EnhancedTable() {
 	};
 
 	const handleEdit = (params: GridRowParams) => {
-		console.log(params);
 		setOpenEditModal(true);
 		setCurrentRowData(params.row);
 	};
