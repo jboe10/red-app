@@ -13,7 +13,6 @@ export const deleteOne = async (id: Guid) => {
 
 export const getMany = async (type: OrderType | -1 = -1, name: string = '') => {
 	try {
-		console.log(type);
 		if (type >= 0 && name !== '') {
 			const response = await axios.get(
 				`${BACKEND_URI}?user=${name}&orderType=${type}`
@@ -41,7 +40,6 @@ export const update = async (order: any) => {
 export const create = async (order: any) => {
 	const result = await axios.post(BACKEND_URI, order);
 	return result;
-	console.log(result);
 };
 
 export enum OrderType {

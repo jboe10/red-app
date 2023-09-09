@@ -29,6 +29,7 @@ export default function CreateOrderModal() {
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 	const [orderType, setOrderType] = React.useState(0);
+	const createdByUserRef = React.useRef(null);
 
 	const saveDraftClickHandler = (e: any) => {
 		setCurrentOrderContext({ customerName, createdByUsername, orderType });
@@ -92,7 +93,6 @@ export default function CreateOrderModal() {
 						<TextField
 							sx={{ marginBottom: '2rem' }}
 							onChange={createdByUsernameChangeHandler}
-							id="standard-basic1"
 							label="Created By User"
 							variant="standard"
 						/>
